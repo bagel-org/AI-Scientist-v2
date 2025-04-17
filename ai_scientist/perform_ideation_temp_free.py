@@ -169,7 +169,7 @@ def generate_temp_free_idea(
                     )
 
                 response_text, msg_history = get_response_from_llm(
-                    msg=prompt_text,
+                    prompt=prompt_text,
                     client=client,
                     model=model,
                     system_message=system_prompt,
