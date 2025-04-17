@@ -39,6 +39,15 @@ RUN apt-get update && \
     python3.11 python3.11-distutils libcudnn8 vim htop wget && \
     rm -rf /var/lib/apt/lists/*
 
+# Add TeXLive packages for LaTeX compilation
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+      texlive-latex-base \
+      texlive-fonts-recommended \
+      texlive-latex-extra \
+      texlive-bibtex-extra && \
+    rm -rf /var/lib/apt/lists/*
+
 # Setup fresh miniconda in runtime stage
 ENV CONDA_DIR=/opt/conda
 RUN wget -q https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh && \
