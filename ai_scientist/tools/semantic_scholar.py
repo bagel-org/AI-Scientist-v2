@@ -36,9 +36,8 @@ class SemanticScholarSearchTool(BaseTool):
         self.max_results = max_results
         self.S2_API_KEY = os.getenv("S2_API_KEY")
         if not self.S2_API_KEY:
-            raise ValueError(
-                "Semantic Scholar API key not found. Please set the S2_API_KEY environment variable."
-            )
+            print("WARNING: No Semantic Scholar API key found. Some features may be limited.")
+            self.S2_API_KEY = ""  # Set to empty string instead of raising error
 
     def use_tool(self, query: str) -> Optional[str]:
         papers = self.search_for_papers(query)
@@ -97,9 +96,8 @@ Abstract: {paper.get("abstract", "No abstract available.")}"""
 def search_for_papers(query, result_limit=10) -> Union[None, List[Dict]]:
     S2_API_KEY = os.getenv("S2_API_KEY")
     if not S2_API_KEY:
-        raise ValueError(
-            "Semantic Scholar API key not found. Please set the S2_API_KEY environment variable."
-        )
+        print("WARNING: No Semantic Scholar API key found. Some features may be limited.")
+        S2_API_KEY = ""  # Set to empty string instead of raising error
     if not query:
         return None
     rsp = requests.get(

@@ -54,7 +54,8 @@ agent:
 
   # LLM settings for coding
   code:
-    model: anthropic.claude-3-5-sonnet-20241022-v2:0
+    # TODO: use after connecting Amazon Bedrock anthropic.claude-3-5-sonnet-20241022-v2:0
+    model: gpt-4o-2024-11-20
     temp: 1.0
     max_tokens: 12000
 

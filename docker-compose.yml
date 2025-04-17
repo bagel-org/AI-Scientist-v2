@@ -6,10 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      # Mount input/output directories to persist data
-      - ./experiments:/workspace/ai_scientist/experiments
-      - ./ai_scientist/ideas:/workspace/ai_scientist/ai_scientist/ideas
-      - ./input:/workspace/ai_scientist/input
+      # Mount input/output directories to persist data with proper permissions
+      - ./experiments:/workspace/ai_scientist/experiments:rw,z
+      - ./ai_scientist:/workspace/ai_scientist/ai_scientist:rw,z
+      - ./input:/workspace/ai_scientist/input:rw,z
     environment:
       # API Keys (fill these in or use .env file)
       - OPENAI_API_KEY=${OPENAI_API_KEY}

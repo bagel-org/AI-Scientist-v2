@@ -60,7 +60,7 @@ Parameters:
 
 Example:
 ```bash
-./generate_ideas.sh my_topic.md gpt-4o-2024-05-13 15 3
+./generate_ideas.sh ./ai_scientist/ideas/i_cant_believe_its_not_better.md gpt-4o-2024-05-13 2 5
 ```
 
 Output: `ai_scientist/ideas/my_topic.json` containing generated research ideas
@@ -81,7 +81,8 @@ Parameters:
 
 Example:
 ```bash
-./run_experiment.sh ai_scientist/ideas/my_topic.json 0 o1-preview-2024-09-12 gpt-4o-2024-11-20
+# ./run_experiment.sh ai_scientist/ideas/my_topic.json 0 o1-preview-2024-09-12 gpt-4o-2024-11-20
+./run_experiment.sh ai_scientist/ideas/i_cant_believe_its_not_better.json 0 gpt-4o-2024-05-13 gpt-4o-2024-05-13
 ```
 
 ## 4. Finding Results
